@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.test.calc'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = "14"
+sourceCompatibility = "16"
 
 repositories {
     mavenCentral()
@@ -18,7 +18,15 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.test.calc.CalcBootApplication'
+        )
+    }
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
-targetCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_16
